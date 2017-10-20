@@ -7,30 +7,26 @@
 		<link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <header>
-      <div>
-        <h4 class="search-results-text">Search results for</h4>
-        <h1 class="search-term"></h1>
-      </div>
-    </header>
-    <!-- <div class="article"></div>
-    <div class="article"></div>
-    <div class="article"></div>
-    <div class="article"></div>
-    <div class="article"></div>
-    <div class="article"></div>
-    <div class="article"></div>
-    <div class="article"></div>
-    <div class="article"></div>
-    <div class="article"></div>
-    <div class="article"></div>
-    <div class="article"></div>
-    <div class="article"></div> -->
-    <i class="search-icon clickable fa fa-wikipedia-w"></i>
+    <!-- Home page -->
+    <i class="search-btn clickable fa fa-wikipedia-w"></i>
+
+    <!-- Search modal page -->
     <div class="search-modal">
-      <i class="close-icon clickable fa fa-close"></i> 
+      <i class="close-btn clickable fa fa-close"></i>
       <input class="search-bar" type="text" autofocus />
     </div>
+
+    <!-- Results page -->
+    <div class="container">
+      <header class="header">
+        <div>
+          <h4 class="search-results-text">Search results for</h4>
+          <h1 class="search-term"></h1>
+        </div>
+      </header>
+      <main class="articles"></main>
+    </div>
+    
     <script src="js/main.js"></script>
   </body>
 </html>
