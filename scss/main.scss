@@ -7,19 +7,41 @@
 // GLOBAL
 // =================
 
+* {
+	box-sizing: border-box;
+}
+
 body {
-	height: 100vh;
-	background: $black;
-	color: #fff;
 	position: relative;
+	// padding-top: 7rem;
+	min-height: 100vh;
+	background: $black;
+	color: $white;
+	// border: 2rem solid $black;
 	display: grid;
-	grid-template-columns: repeat(10, 1fr);
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: 30rem;
+	grid-gap: 2rem;
 }
 
 
 // =================
 // SPECIFIC
 // =================
+
+header {
+	// position: fixed;
+	// width: 100%;
+	display: none;
+	grid-column: 1 / 5;
+	grid-row: 1;
+	background: $black;
+	border: 5px solid gold;
+	top: 0;
+	left: 0;
+	// height: 6rem;
+	z-index: 1;
+}
 
 .search-icon {
 	font-size: 20rem;
@@ -31,7 +53,7 @@ body {
 }
 
 .search-modal {
-	background: $blue;
+	background: $white;
 	height: 100vh;
 	width: 100%;
 	position: absolute;
@@ -43,33 +65,36 @@ body {
 	align-items: center;
 	transform: translateY(-100%);
 	transition: 300ms all ease-in-out;
+	color: $black;
 }
 
 
 .search-bar {
 	width: 60%;
-	color: $white;
+	color: $black;
 	font-size: 10rem;
 	background: transparent;
 	border: none;
-	border-bottom: 5px solid $white;
+	border-bottom: 5px solid $black;
 	padding-bottom: 1rem;
 	opacity: 0;
 	transition: 300ms 300ms opacity ease-in;
 
 	&:focus {
-		border-color: $yellow;
+		// border-color: $yellow;
 		outline: none;
 	}
 }
-
-
 
 .close-icon {
 	position: absolute;
 	top: 3rem;
 	right: 5rem;
 	font-size: 10rem;
+}
+
+.article {
+	border: 5px solid gold;
 }
 
 

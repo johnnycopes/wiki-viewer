@@ -403,13 +403,28 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   line-height: 1.3; }
 
+* {
+  box-sizing: border-box; }
+
 body {
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
   background: #080808;
   color: #fff;
-  position: relative;
   display: grid;
-  grid-template-columns: repeat(10, 1fr); }
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 30rem;
+  grid-gap: 2rem; }
+
+header {
+  display: none;
+  grid-column: 1 / 5;
+  grid-row: 1;
+  background: #080808;
+  border: 5px solid gold;
+  top: 0;
+  left: 0;
+  z-index: 1; }
 
 .search-icon {
   font-size: 20rem;
@@ -420,7 +435,7 @@ body {
   transition: 100ms all ease-in-out; }
 
 .search-modal {
-  background: #2e5266;
+  background: #fff;
   height: 100vh;
   width: 100%;
   position: absolute;
@@ -431,20 +446,20 @@ body {
   justify-content: center;
   align-items: center;
   transform: translateY(-100%);
-  transition: 300ms all ease-in-out; }
+  transition: 300ms all ease-in-out;
+  color: #080808; }
 
 .search-bar {
   width: 60%;
-  color: #fff;
+  color: #080808;
   font-size: 10rem;
   background: transparent;
   border: none;
-  border-bottom: 5px solid #fff;
+  border-bottom: 5px solid #080808;
   padding-bottom: 1rem;
   opacity: 0;
   transition: 300ms 300ms opacity ease-in; }
   .search-bar:focus {
-    border-color: #ecec21;
     outline: none; }
 
 .close-icon {
@@ -452,6 +467,9 @@ body {
   top: 3rem;
   right: 5rem;
   font-size: 10rem; }
+
+.article {
+  border: 5px solid gold; }
 
 .slide-down {
   transform: translateY(0); }
