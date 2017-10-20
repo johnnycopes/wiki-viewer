@@ -73,6 +73,11 @@ body {
 }
 
 
+
+// =================
+// ANIMATION
+// =================
+
 .slide-down {
 	transform: translateY(0);
 }
@@ -83,4 +88,13 @@ body {
 
 .fade-out {
 	opacity: 0;
+}
+
+
+// =================
+// UTILITY
+// =================
+
+.clickable {
+	cursor: pointer;
 }

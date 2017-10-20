@@ -462,4 +462,7 @@ body {
 .fade-out {
   opacity: 0; }
 
+.clickable {
+  cursor: pointer; }
+
 /*# sourceMappingURL=main.css.map */
