@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+@import 'variables';
+
+body {
+  font-family: $body-font;
+  line-height: 1.3;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.3;
+}
