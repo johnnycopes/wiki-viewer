@@ -33,12 +33,13 @@ header {
 	// position: fixed;
 	// width: 100%;
 	display: none;
+	padding: 5rem;
 	grid-column: 1 / 5;
 	grid-row: 1;
-	background: $black;
-	border: 5px solid gold;
-	top: 0;
-	left: 0;
+	align-items: center;
+	// background: ;
+	// top: 0;
+	// left: 0;
 	// height: 6rem;
 	z-index: 1;
 }
@@ -72,7 +73,7 @@ header {
 .search-bar {
 	width: 60%;
 	color: $black;
-	font-size: 10rem;
+	font-size: $big-font;
 	background: transparent;
 	border: none;
 	border-bottom: 5px solid $black;
@@ -90,12 +91,30 @@ header {
 	position: absolute;
 	top: 3rem;
 	right: 5rem;
-	font-size: 10rem;
+	font-size: $big-font;
 }
+
+
+
+
+// Results page
+
+.search-results-text {
+	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: 4px;
+	font-size: 2.5rem;
+}
+
+.search-term {
+	font-size: $big-font;
+}
+
 
 .article {
 	border: 5px solid gold;
 }
+
 
 
 

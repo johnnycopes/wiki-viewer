@@ -1,20 +1,17 @@
 const header = document.querySelector('header');
+const searchTerm = document.querySelector('.search-term');
+
 const searchBtn = document.querySelector('.search-icon');
 const searchModal = document.querySelector('.search-modal');
 const searchBar = document.querySelector('.search-bar');
 const closeBtn = document.querySelector('.close-icon');
 
 searchBtn.addEventListener('click', function() {
-  searchBtn.classList.add('fade-out');
-  searchModal.classList.add('slide-down');
-  searchBar.classList.add('fade-in');
-  searchBar.focus();
+  openSearchModal();
 });
 
 closeBtn.addEventListener('click', function() {
-  searchModal.classList.remove('slide-down');
-  searchBar.classList.remove('fade-in');
-  searchBtn.classList.remove('fade-out');
+  closeSearchModal();
 });
 
 searchBar.addEventListener('keydown', function(event) {
@@ -33,9 +30,32 @@ searchBar.addEventListener('keydown', function(event) {
         // do something with data
         let results = data.query.pages;
         console.log(results);
+
+        closeSearchModal();
+        displaySearchResults(query, results);
       })
       .catch(function(error) {
         console.log(error);
       });
   }
 });
+
+
+function openSearchModal() {
+  searchBtn.classList.add("fade-out");
+  searchModal.classList.add("slide-down");
+  searchBar.classList.add("fade-in");
+  searchBar.focus();
+}
+
+function closeSearchModal() {
+  searchModal.classList.remove("slide-down");
+  searchBar.classList.remove("fade-in");
+  searchBtn.classList.remove("fade-out");
+}
+
+function displaySearchResults(query, results) {
+  searchBtn.style.display = 'none';
+  header.style.display = 'flex';
+  searchTerm.textContent = query;
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
 @import 'variables';
 
 html {
@@ -11,8 +11,28 @@ body {
   line-height: 1.3;
 }
 
+input {
+  font-family: $body-font;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 300;
   line-height: 1.3;
 }
+
+// h1 {
+//   font-size: 10rem;
+// }
+
+// h2 {
+//   font-size: 3.375rem;
+// }
+
+// h3 {
+//   font-size: 2.25rem;
+// }
+
+// h4 {
+//   font-size: 1.5rem;
+// }
