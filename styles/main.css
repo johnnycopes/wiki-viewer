@@ -478,14 +478,17 @@ body {
   border: 1px solid #fff; }
 
 .article {
-  height: 30rem;
-  flex: 1 1 30rem;
-  border: 1px solid #fff; }
-
-.article {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  flex: 1 1 30rem;
+  height: 30rem;
+  border: 1px solid #fff;
+  background-color: #080808;
+  background-image: url("http://drpattydental.com/wp-content/uploads/2017/05/placeholder.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 .slide-down {
   transform: translateY(0); }

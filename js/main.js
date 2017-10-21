@@ -32,7 +32,7 @@ closeBtn.addEventListener('click', function() {
 searchBar.addEventListener('keydown', function(event) {
   if (event.keyCode === 13) {
     let query = searchBar.value;
-    let url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&gsrlimit=50&generator=search&origin=*&gsrsearch=' + query;
+    let url = 'https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&gsrlimit=50&generator=search&origin=*&gsrsearch=' + query;
 
     fetch(url)
       .then(function(response) {
@@ -43,6 +43,7 @@ searchBar.addEventListener('keydown', function(event) {
       })
       .then(function(data) {
         let results = data.query.pages;
+        console.log(results)
         closeSearchModal();
         displaySearchResults(query, results);
       })
@@ -88,5 +89,9 @@ function createArticle(articleData) {
   let article = document.createElement('article');
   article.classList.add('article');
   article.textContent = articleData.title;
+  if (articleData.thumbnail) {
+    let imageUrl = articleData.thumbnail.source;
+    article.style.backgroundImage = 'url("' + imageUrl + '")';
+  }
   articles.appendChild(article);
 }

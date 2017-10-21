@@ -16,10 +16,6 @@ body {
 	min-height: 100vh;
 	background: $black;
 	color: $white;
-	// display: grid;
-	// grid-template-columns: repeat(4, 1fr);
-	// grid-auto-rows: 30rem;
-	// grid-gap: 2rem;
 }
 
 
@@ -111,18 +107,18 @@ body {
 }
 
 .article {
-	height: 30rem;
-	flex: 1 1 30rem;
-	border: 1px solid $white;
-}
-
-.article {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex: 1 1 30rem;
+	height: 30rem;
+	border: 1px solid $white;
+	background-color: $black;
+	background-image: url('http://drpattydental.com/wp-content/uploads/2017/05/placeholder.png');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
-
-
 
 
 // =================
