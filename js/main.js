@@ -31,25 +31,7 @@ closeBtn.addEventListener('click', function() {
 
 searchBar.addEventListener('keydown', function(event) {
   if (event.keyCode === 13) {
-    let query = searchBar.value;
-    let url = 'https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&gsrlimit=50&generator=search&origin=*&gsrsearch=' + query;
-
-    fetch(url)
-      .then(function(response) {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('Network response was not ok: ' + response.statusText);
-      })
-      .then(function(data) {
-        let results = data.query.pages;
-        console.log(results)
-        closeSearchModal();
-        displaySearchResults(query, results);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
+    search();
   }
 });
 
@@ -71,6 +53,27 @@ function closeSearchModal() {
   searchBtn.classList.remove('fade-out');
 }
 
+function search() {
+  let query = searchBar.value;
+  let url = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&piprop=original&origin=*&gsrlimit=50&generator=search&gsrsearch=" + query;
+
+  fetch(url)
+    .then(function(response) {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error("Network response was not ok: " + response.statusText);
+    })
+    .then(function(data) {
+      let results = data.query.pages;
+      closeSearchModal();
+      displaySearchResults(query, results);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
 function displaySearchResults(query, results) {
   searchBtn.style.display = 'none';
   header.style.display = 'flex';
@@ -90,7 +93,7 @@ function createArticle(articleData) {
   article.classList.add('article');
   article.textContent = articleData.title;
   if (articleData.thumbnail) {
-    let imageUrl = articleData.thumbnail.source;
+    let imageUrl = articleData.thumbnail.original;
     article.style.backgroundImage = 'url("' + imageUrl + '")';
   }
   articles.appendChild(article);
