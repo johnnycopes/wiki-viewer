@@ -55,7 +55,7 @@ function closeSearchModal() {
 
 function search() {
   let query = searchBar.value;
-  let url = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&piprop=original&origin=*&gsrlimit=50&generator=search&gsrsearch=" + query;
+  let url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&piprop=original&origin=*&gsrlimit=50&generator=search&gsrsearch=' + query;
 
   fetch(url)
     .then(function(response) {
@@ -91,10 +91,21 @@ function displaySearchResults(query, results) {
 function createArticle(articleData) {
   let article = document.createElement('article');
   article.classList.add('article');
-  article.textContent = articleData.title;
   if (articleData.thumbnail) {
     let imageUrl = articleData.thumbnail.original;
     article.style.backgroundImage = 'url("' + imageUrl + '")';
   }
+
+  let link = document.createElement('a');
+  link.classList.add('article-link');
+  link.href = 'http://en.wikipedia.org/?curid=' + articleData.pageid;
+  link.target = '_blank';
+
+  let linkHeader = document.createElement('h4');
+  linkHeader.classList.add('article-link-header');
+  linkHeader.textContent = articleData.title;
+  
+  link.appendChild(linkHeader);
+  article.appendChild(link);
   articles.appendChild(article);
 }

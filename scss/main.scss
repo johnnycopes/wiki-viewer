@@ -18,6 +18,10 @@ body {
 	color: $white;
 }
 
+a {
+	color: $white;
+	text-decoration: none;
+}
 
 // =================
 // SPECIFIC
@@ -44,7 +48,7 @@ body {
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 1;
+	z-index: 4;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -107,6 +111,8 @@ body {
 }
 
 .article {
+	position: relative;
+	text-align: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -118,6 +124,58 @@ body {
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	overflow: hidden;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: $black;
+		opacity: 0.5;
+	}
+
+	&-link-header {
+		// position: absolute;
+		z-index: 3;
+		font-weight: 400;
+		transition: 300ms all ease-in-out;
+		padding: 0 2rem;
+	}
+
+	&-link {
+		width: 100%;
+    height: 100%;
+		display: flex;
+    justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	&-link::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: $black;
+		opacity: 1;
+		z-index: 2;
+		transition: 300ms all ease-in;
+	}
+
+	// Hover effects
+
+	.article:hover &-link-header {
+		transform: scale(1.1);
+	}
+
+	.article:hover &-link::before {
+		opacity: 0;
+	}
 }
 
 
