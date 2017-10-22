@@ -501,7 +501,6 @@ a {
   height: 30rem;
   border: 1px solid #fff;
   background-color: #080808;
-  background-image: url("http://drpattydental.com/wp-content/uploads/2017/05/placeholder.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -514,7 +513,8 @@ a {
     width: 100%;
     height: 100%;
     background: #080808;
-    opacity: 0.5; }
+    opacity: 0.5;
+    z-index: 1; }
   .article-link-header {
     display: inline-block;
     position: relative;
@@ -555,6 +555,17 @@ a {
     transform: scaleX(1); }
   .article:hover .article-link::before {
     opacity: 0; }
+
+.no-img::before {
+  content: "\f03e";
+  font-family: FontAwesome;
+  position: absolute;
+  font-size: 20rem;
+  color: #fff;
+  opacity: 0.4;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 .slide-down {
   transform: translateY(0); }

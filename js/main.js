@@ -106,6 +106,9 @@ function createArticle(articleData) {
     let imageUrl = articleData.thumbnail.original;
     article.style.backgroundImage = 'url("' + imageUrl + '")';
   }
+  else {
+    article.classList.add('no-img');
+  }
 
   let link = document.createElement('a');
   link.classList.add('article-link');
