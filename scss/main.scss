@@ -23,48 +23,60 @@ a {
 	text-decoration: none;
 }
 
+.btn {
+	transition: 300ms opacity ease-in-out;
+	opacity: 0.75;
+}
+
+.btn:hover {
+	opacity: 1;
+}
+
 // =================
 // SPECIFIC
 // =================
 
 // Home page
 
-.search-btn {
-	font-size: $huge-font;
+.wiki-btn {
+	font-size: $huge-font-size;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	transition: 100ms all ease-in-out;
+	transition: 300ms all ease-in-out;
 }
 
 
 // Search modal page
 
 .search-modal {
-	background: $white;
+	text-align: right;
+	padding: 5rem;
 	height: 100vh;
 	width: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 4;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	z-index: 3;
 	transform: translateY(-100%);
 	transition: 300ms all ease-in-out;
+	background: $white;
 	color: $black;
 }
 
 .search-bar {
 	width: 60%;
 	color: $black;
-	font-size: $big-font;
+	font-size: $big-font-size;
 	background: transparent;
 	border: none;
 	border-bottom: 5px solid $black;
 	padding-bottom: 1rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	opacity: 0;
 	transition: 300ms 300ms opacity ease-in;
 
@@ -74,10 +86,7 @@ a {
 }
 
 .close-btn {
-	position: absolute;
-	top: 3rem;
-	right: 5rem;
-	font-size: $big-font;
+	font-size: $btn-font-size;
 }
 
 
@@ -89,7 +98,7 @@ a {
 
 .header {
 	display: none;
-	align-items: center;
+	justify-content: space-between;
 	margin-bottom: 5rem;
 
 	.search-results-text {
@@ -100,7 +109,12 @@ a {
 	}
 
 	.search-term {
-		font-size: $big-font;
+		font-size: $big-font-size;
+	}
+
+	.search-btn {
+		font-size: $btn-font-size;
+		align-self: flex-start;
 	}
 }
 
@@ -138,11 +152,23 @@ a {
 	}
 
 	&-link-header {
-		// position: absolute;
-		z-index: 3;
+		display: inline-block;
+		position: relative;
 		font-weight: 400;
 		transition: 300ms all ease-in-out;
-		padding: 0 2rem;
+		box-decoration-break: clone;
+		z-index: 2;
+	}
+
+	&-link-header::after {
+		content: "";
+		position: absolute;
+    border-bottom: 2px solid $white;
+    width: 100%;
+		left: 0;
+		bottom: 0;
+		transition: 300ms transform ease-in-out;
+		transform: scaleX(0);
 	}
 
 	&-link {
@@ -171,6 +197,10 @@ a {
 
 	.article:hover &-link-header {
 		transform: scale(1.1);
+	}
+
+	.article:hover &-link-header::after {
+    transform: scaleX(1);
 	}
 
 	.article:hover &-link::before {

@@ -419,27 +419,33 @@ a {
   color: #fff;
   text-decoration: none; }
 
-.search-btn {
+.btn {
+  transition: 300ms opacity ease-in-out;
+  opacity: 0.75; }
+
+.btn:hover {
+  opacity: 1; }
+
+.wiki-btn {
   font-size: 20rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 100ms all ease-in-out; }
+  transition: 300ms all ease-in-out; }
 
 .search-modal {
-  background: #fff;
+  text-align: right;
+  padding: 5rem;
   height: 100vh;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 3;
   transform: translateY(-100%);
   transition: 300ms all ease-in-out;
+  background: #fff;
   color: #080808; }
 
 .search-bar {
@@ -450,23 +456,24 @@ a {
   border: none;
   border-bottom: 5px solid #080808;
   padding-bottom: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   opacity: 0;
   transition: 300ms 300ms opacity ease-in; }
   .search-bar:focus {
     outline: none; }
 
 .close-btn {
-  position: absolute;
-  top: 3rem;
-  right: 5rem;
-  font-size: 10rem; }
+  font-size: 4rem; }
 
 .container {
   padding: 5rem; }
 
 .header {
   display: none;
-  align-items: center;
+  justify-content: space-between;
   margin-bottom: 5rem; }
   .header .search-results-text {
     text-transform: uppercase;
@@ -475,6 +482,9 @@ a {
     font-size: 2.5rem; }
   .header .search-term {
     font-size: 10rem; }
+  .header .search-btn {
+    font-size: 4rem;
+    align-self: flex-start; }
 
 .articles {
   display: none;
@@ -506,10 +516,21 @@ a {
     background: #080808;
     opacity: 0.5; }
   .article-link-header {
-    z-index: 3;
+    display: inline-block;
+    position: relative;
     font-weight: 400;
     transition: 300ms all ease-in-out;
-    padding: 0 2rem; }
+    box-decoration-break: clone;
+    z-index: 2; }
+  .article-link-header::after {
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid #fff;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    transition: 300ms transform ease-in-out;
+    transform: scaleX(0); }
   .article-link {
     width: 100%;
     height: 100%;
@@ -530,6 +551,8 @@ a {
     transition: 300ms all ease-in; }
   .article:hover .article-link-header {
     transform: scale(1.1); }
+  .article:hover .article-link-header::after {
+    transform: scaleX(1); }
   .article:hover .article-link::before {
     opacity: 0; }
 

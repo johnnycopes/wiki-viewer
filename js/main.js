@@ -4,7 +4,7 @@
 
 // Home page
 const body = document.querySelector('body');
-const searchBtn = document.querySelector('.search-btn');
+const wikiBtn = document.querySelector('.wiki-btn');
 
 // Search modal page
 const searchModal = document.querySelector('.search-modal');
@@ -13,17 +13,29 @@ const closeBtn = document.querySelector('.close-btn');
 
 // Results page
 const header = document.querySelector('header');
+const searchBtn = document.querySelector('.search-btn');
 const searchTerm = document.querySelector('.search-term');
 const articles = document.querySelector('.articles');
+
+// Multiple selectors
+const modalOpener = document.querySelectorAll('.modal-opener');
 
 
 // =================
 // EVENT LISTENERS
 // =================
 
-searchBtn.addEventListener('click', function() {
-  openSearchModal();
+modalOpener.forEach(function(element) {
+  element.addEventListener('click', function() {
+    openSearchModal();
+  });
 });
+
+document.addEventListener('keydown', function() {
+  if (event.keyCode === 27) {
+    closeSearchModal();
+  }
+})
 
 closeBtn.addEventListener('click', function() {
   closeSearchModal();
@@ -35,13 +47,12 @@ searchBar.addEventListener('keydown', function(event) {
   }
 });
 
-
 // =================
 // FUNCTIONS
 // =================
 
 function openSearchModal() {
-  searchBtn.classList.add('fade-out');
+  wikiBtn.classList.add('fade-out');
   searchModal.classList.add('slide-down');
   searchBar.classList.add('fade-in');
   searchBar.focus();
@@ -50,7 +61,7 @@ function openSearchModal() {
 function closeSearchModal() {
   searchModal.classList.remove('slide-down');
   searchBar.classList.remove('fade-in');
-  searchBtn.classList.remove('fade-out');
+  wikiBtn.classList.remove('fade-out');
 }
 
 function search() {
@@ -75,7 +86,7 @@ function search() {
 }
 
 function displaySearchResults(query, results) {
-  searchBtn.style.display = 'none';
+  wikiBtn.style.display = 'none';
   header.style.display = 'flex';
   articles.style.display = 'flex';
   searchTerm.textContent = query;
