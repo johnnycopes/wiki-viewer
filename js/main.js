@@ -18,6 +18,7 @@ const homeBtn = document.querySelector('.home-btn');
 const searchBtn = document.querySelector('.search-btn');
 const searchTerm = document.querySelector('.search-term');
 const articles = document.querySelector('.articles');
+const noResultsMessage = document.querySelector('.no-results-message');
 
 // Multiple selectors
 const searchModalOpener = document.querySelectorAll('.search-modal-opener');
@@ -39,7 +40,6 @@ document.addEventListener('keydown', function() {
   }
 })
 
-
 searchBar.addEventListener('keydown', function(event) {
   if (event.keyCode === 13) {
     search();
@@ -54,13 +54,16 @@ homeBtn.addEventListener('click', resetPage);
 // =================
 
 function resetPage() {
-  transitionModal.classList.add("slide-on-top");
+  transitionModal.classList.add('slide-on-top');
+  body.classList.add('no-scroll');
   setTimeout(function() {
-    wikiBtn.style.display = "inline-block";
-    header.style.display = "none";
-    articles.style.display = "none";
-    searchBar.value = "";
-    transitionModal.classList.remove("slide-on-top");
+    wikiBtn.style.display = 'inline-block';
+    header.style.display = 'none';
+    articles.style.display = 'none';
+    noResultsMessage.display = 'none';
+    searchBar.value = '';
+    transitionModal.classList.remove('slide-on-top');
+    body.classList.remove('no-scroll');
   }, 700);
 }
 
@@ -69,12 +72,14 @@ function openSearchModal() {
   searchModal.classList.add('slide-on-top');
   searchBar.classList.add('fade-in');
   searchBar.focus();
+  body.classList.add('no-scroll');
 }
 
 function closeSearchModal() {
   searchModal.classList.remove('slide-on-top');
   searchBar.classList.remove('fade-in');
   wikiBtn.classList.remove('fade-out');
+  body.classList.remove('no-scroll');
 }
 
 function search() {
@@ -89,9 +94,11 @@ function search() {
       throw new Error("Network response was not ok: " + response.statusText);
     })
     .then(function(data) {
-      let results = data.query.pages;
-      closeSearchModal();
+      console.log(data);
+      let results;
+      data.query ? results = data.query.pages : results = false;
       displaySearchResults(query, results);
+      closeSearchModal();
     })
     .catch(function(error) {
       console.log(error);
@@ -101,20 +108,26 @@ function search() {
 function displaySearchResults(query, results) {
   wikiBtn.style.display = 'none';
   header.style.display = 'flex';
-  articles.style.display = 'flex';
   searchTerm.textContent = query;
 
-  // remove all existing articles from page
+// remove all existing articles from page
   while (articles.lastChild) {
     articles.removeChild(articles.lastChild);
   }
 
-  for (let key in results) {
-    if (results.hasOwnProperty(key)) {
-      let articleData = results[key];
-      createArticle(articleData);
+  if (results) {
+    console.log(results);
+    articles.style.display = 'flex';
+    for (let key in results) {
+      if (results.hasOwnProperty(key)) {
+        let articleData = results[key];
+        createArticle(articleData);
+      }
     }
+  } else {
+    noResultsMessage.style.display = 'block';
   }
+
 }
 
 function createArticle(articleData) {

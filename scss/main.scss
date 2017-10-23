@@ -44,18 +44,16 @@ a {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	transition: 300ms all ease-in-out;
 }
 
 .transition-modal {
-	content: "";
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	background: $white;
-	transition: 300ms all ease-in-out;
+	transition: 300ms all ease-in;
 	transform: translateY(100%);
 	z-index: 3;
 }
@@ -64,18 +62,18 @@ a {
 // Search modal page
 
 .search-modal {
-	text-align: right;
-	padding: 5rem;
-	height: 100vh;
-	width: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 3;
-	transform: translateY(-100%);
-	transition: 300ms all ease-in-out;
+	width: 100%;
+	height: 100vh;
 	background: $white;
 	color: $black;
+	transition: 300ms all ease-in;
+	transform: translateY(-100%);
+	z-index: 3;
+	padding: 5rem;
+	text-align: right;
 }
 
 .search-bar {
@@ -107,16 +105,13 @@ a {
 
 .container {
 	padding: 5rem;
+	text-align: center;
 }
 
 .header {
 	display: none;
 	justify-content: space-between;
 	margin-bottom: 5rem;
-
-	.search-results {
-		text-align: center;
-	}
 
 	.search-results-text {
 		text-transform: uppercase;
@@ -143,7 +138,6 @@ a {
 
 .article {
 	position: relative;
-	text-align: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -201,7 +195,7 @@ a {
     width: 100%;
 		left: 0;
 		bottom: 0;
-		transition: 300ms transform ease-in-out;
+		transition: 300ms all ease-in-out;
 		transform: scaleX(0);
 	}
 
@@ -232,6 +226,9 @@ a {
 	transform: translate(-50%, -50%);
 }
 
+.no-results-message {
+	display: none;
+}
 
 
 // =================
@@ -257,4 +254,8 @@ a {
 
 .clickable {
 	cursor: pointer;
+}
+
+.no-scroll {
+	overflow: hidden;
 }
