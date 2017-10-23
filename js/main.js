@@ -61,7 +61,7 @@ function resetPage() {
     articles.style.display = "none";
     searchBar.value = "";
     transitionModal.classList.remove("slide-on-top");
-  }, 900);
+  }, 700);
 }
 
 function openSearchModal() {

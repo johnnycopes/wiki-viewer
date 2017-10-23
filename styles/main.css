@@ -441,7 +441,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #080808;
+  background: #fff;
   transition: 300ms all ease-in-out;
   transform: translateY(100%);
   z-index: 3; }
