@@ -115,10 +115,15 @@ function createArticle(articleData) {
   link.href = 'http://en.wikipedia.org/?curid=' + articleData.pageid;
   link.target = '_blank';
 
+  let linkHeaderContainer = document.createElement('div');
+  linkHeaderContainer.classList.add('article-link-header-container');
+
   let linkHeader = document.createElement('h4');
   linkHeader.classList.add('article-link-header');
   linkHeader.textContent = articleData.title;
   
+  // link.appendChild(linkHeaderContainer);
+  // linkHeaderContainer.appendChild(linkHeader);
   link.appendChild(linkHeader);
   article.appendChild(link);
   articles.appendChild(article);

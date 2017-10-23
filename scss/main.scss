@@ -121,7 +121,6 @@ a {
 .articles {
 	display: none;
 	flex-wrap: wrap;
-	border: 1px solid $white;
 }
 
 .article {
@@ -132,8 +131,6 @@ a {
 	align-items: center;
 	flex: 1 1 30rem;
 	height: 30rem;
-	border: 1px solid $white;
-	background-color: $black;
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -151,9 +148,28 @@ a {
 		z-index: 1;
 	}
 
+	&-link {
+		padding: 0 2rem;
+		display: flex;
+    flex-direction: column;
+		align-items: center;
+	}
+
+	&-link::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: $black;
+		opacity: 1;
+		z-index: 2;
+		transition: 300ms all ease-in;
+	}
+
 	&-link-header {
 		display: inline-block;
-		position: relative;
 		font-weight: 400;
 		transition: 300ms all ease-in-out;
 		box-decoration-break: clone;
@@ -170,29 +186,6 @@ a {
 		transition: 300ms transform ease-in-out;
 		transform: scaleX(0);
 	}
-
-	&-link {
-		width: 100%;
-    height: 100%;
-		display: flex;
-    justify-content: center;
-		align-items: center;
-		position: relative;
-	}
-
-	&-link::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: $black;
-		opacity: 1;
-		z-index: 2;
-		transition: 300ms all ease-in;
-	}
-
 
 	// Hover effects
 

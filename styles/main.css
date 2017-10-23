@@ -488,8 +488,7 @@ a {
 
 .articles {
   display: none;
-  flex-wrap: wrap;
-  border: 1px solid #fff; }
+  flex-wrap: wrap; }
 
 .article {
   position: relative;
@@ -499,8 +498,6 @@ a {
   align-items: center;
   flex: 1 1 30rem;
   height: 30rem;
-  border: 1px solid #fff;
-  background-color: #080808;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -515,9 +512,24 @@ a {
     background: #080808;
     opacity: 0.5;
     z-index: 1; }
+  .article-link {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .article-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #080808;
+    opacity: 1;
+    z-index: 2;
+    transition: 300ms all ease-in; }
   .article-link-header {
     display: inline-block;
-    position: relative;
     font-weight: 400;
     transition: 300ms all ease-in-out;
     box-decoration-break: clone;
@@ -531,24 +543,6 @@ a {
     bottom: 0;
     transition: 300ms transform ease-in-out;
     transform: scaleX(0); }
-  .article-link {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; }
-  .article-link::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #080808;
-    opacity: 1;
-    z-index: 2;
-    transition: 300ms all ease-in; }
   .article:hover .article-link-header {
     transform: scale(1.1); }
   .article:hover .article-link-header::after {
