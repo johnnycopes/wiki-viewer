@@ -47,6 +47,19 @@ a {
 	transition: 300ms all ease-in-out;
 }
 
+.transition-modal {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $black;
+	transition: 300ms all ease-in-out;
+	transform: translateY(100%);
+	z-index: 3;
+}
+
 
 // Search modal page
 
@@ -101,6 +114,10 @@ a {
 	justify-content: space-between;
 	margin-bottom: 5rem;
 
+	.search-results {
+		text-align: center;
+	}
+
 	.search-results-text {
 		text-transform: uppercase;
 		font-weight: 300;
@@ -112,6 +129,7 @@ a {
 		font-size: $big-font-size;
 	}
 
+	.home-btn,
 	.search-btn {
 		font-size: $btn-font-size;
 		align-self: flex-start;
@@ -131,7 +149,7 @@ a {
 	align-items: center;
 	flex: 1 1 30rem;
 	height: 30rem;
-	background-position: center;
+	background-position: top;
 	background-size: cover;
 	background-repeat: no-repeat;
 	overflow: hidden;
@@ -203,7 +221,7 @@ a {
 }
 
 .no-img::before {
-	content: "\f03e"; 
+	content: "\f266"; 
 	font-family: FontAwesome;
 	position: absolute;
 	font-size: $huge-font-size;
@@ -215,11 +233,12 @@ a {
 }
 
 
+
 // =================
 // ANIMATION
 // =================
 
-.slide-down {
+.slide-on-top {
 	transform: translateY(0);
 }
 

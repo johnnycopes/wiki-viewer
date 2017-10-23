@@ -5,6 +5,7 @@
 // Home page
 const body = document.querySelector('body');
 const wikiBtn = document.querySelector('.wiki-btn');
+const transitionModal = document.querySelector('.transition-modal');
 
 // Search modal page
 const searchModal = document.querySelector('.search-modal');
@@ -13,22 +14,23 @@ const closeBtn = document.querySelector('.close-btn');
 
 // Results page
 const header = document.querySelector('header');
+const homeBtn = document.querySelector('.home-btn');
 const searchBtn = document.querySelector('.search-btn');
 const searchTerm = document.querySelector('.search-term');
 const articles = document.querySelector('.articles');
 
 // Multiple selectors
-const modalOpener = document.querySelectorAll('.modal-opener');
+const searchModalOpener = document.querySelectorAll('.search-modal-opener');
 
 
 // =================
 // EVENT LISTENERS
 // =================
 
-modalOpener.forEach(function(element) {
-  element.addEventListener('click', function() {
-    openSearchModal();
-  });
+closeBtn.addEventListener('click', closeSearchModal);
+
+searchModalOpener.forEach(function(element) {
+  element.addEventListener('click', openSearchModal);
 });
 
 document.addEventListener('keydown', function() {
@@ -37,9 +39,6 @@ document.addEventListener('keydown', function() {
   }
 })
 
-closeBtn.addEventListener('click', function() {
-  closeSearchModal();
-});
 
 searchBar.addEventListener('keydown', function(event) {
   if (event.keyCode === 13) {
@@ -47,19 +46,33 @@ searchBar.addEventListener('keydown', function(event) {
   }
 });
 
+homeBtn.addEventListener('click', resetPage);
+
+
 // =================
 // FUNCTIONS
 // =================
 
+function resetPage() {
+  transitionModal.classList.add("slide-on-top");
+  setTimeout(function() {
+    wikiBtn.style.display = "inline-block";
+    header.style.display = "none";
+    articles.style.display = "none";
+    searchBar.value = "";
+    transitionModal.classList.remove("slide-on-top");
+  }, 900);
+}
+
 function openSearchModal() {
   wikiBtn.classList.add('fade-out');
-  searchModal.classList.add('slide-down');
+  searchModal.classList.add('slide-on-top');
   searchBar.classList.add('fade-in');
   searchBar.focus();
 }
 
 function closeSearchModal() {
-  searchModal.classList.remove('slide-down');
+  searchModal.classList.remove('slide-on-top');
   searchBar.classList.remove('fade-in');
   wikiBtn.classList.remove('fade-out');
 }
