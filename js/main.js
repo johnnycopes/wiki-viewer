@@ -60,7 +60,7 @@ function resetPage() {
     wikiBtn.style.display = 'inline-block';
     header.style.display = 'none';
     articles.style.display = 'none';
-    noResultsMessage.display = 'none';
+    noResultsMessage.style.display = 'none';
     searchBar.value = '';
     transitionModal.classList.remove('slide-on-top');
     body.classList.remove('no-scroll');
@@ -68,18 +68,16 @@ function resetPage() {
 }
 
 function openSearchModal() {
-  wikiBtn.classList.add('fade-out');
   searchModal.classList.add('slide-on-top');
+  body.classList.add('no-scroll');
   searchBar.classList.add('fade-in');
   searchBar.focus();
-  body.classList.add('no-scroll');
 }
 
 function closeSearchModal() {
   searchModal.classList.remove('slide-on-top');
-  searchBar.classList.remove('fade-in');
-  wikiBtn.classList.remove('fade-out');
   body.classList.remove('no-scroll');
+  searchBar.classList.remove('fade-in');
 }
 
 function search() {
