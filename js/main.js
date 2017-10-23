@@ -104,6 +104,11 @@ function displaySearchResults(query, results) {
   articles.style.display = 'flex';
   searchTerm.textContent = query;
 
+  // remove all existing articles from page
+  while (articles.lastChild) {
+    articles.removeChild(articles.lastChild);
+  }
+
   for (let key in results) {
     if (results.hasOwnProperty(key)) {
       let articleData = results[key];
@@ -135,8 +140,6 @@ function createArticle(articleData) {
   linkHeader.classList.add('article-link-header');
   linkHeader.textContent = articleData.title;
   
-  // link.appendChild(linkHeaderContainer);
-  // linkHeaderContainer.appendChild(linkHeader);
   link.appendChild(linkHeader);
   article.appendChild(link);
   articles.appendChild(article);
