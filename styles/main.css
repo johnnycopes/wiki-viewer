@@ -439,7 +439,7 @@ a {
   letter-spacing: 4px;
   font-family: "Lato", "Helvetica", "TrebuchetMS", "Arial", sans-serif;
   background: #fff;
-  border: 3px solid #080808;
+  border: 2px solid #080808;
   cursor: pointer; }
 
 .wiki-btn {
@@ -493,7 +493,7 @@ a {
   font-size: 10rem;
   font-weight: 400;
   border: none;
-  border-bottom: 3px solid #080808;
+  border-bottom: 2px solid #080808;
   padding-bottom: 1rem;
   margin-bottom: 4rem; }
   .search-bar:focus {
