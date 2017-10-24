@@ -85,7 +85,7 @@ function closeSearchModal() {
 
 function search() {
   let query = searchBar.value;
-  let url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&piprop=original&origin=*&gsrlimit=50&generator=search&gsrsearch=' + query;
+  let url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&piprop=original&origin=*&gsrlimit=30&generator=search&gsrsearch=' + query;
 
   fetch(url)
     .then(function(response) {
@@ -95,7 +95,6 @@ function search() {
       throw new Error("Network response was not ok: " + response.statusText);
     })
     .then(function(data) {
-      console.log(data);
       let results;
       data.query ? results = data.query.pages : results = false;
       displaySearchResults(query, results);
@@ -117,7 +116,6 @@ function displaySearchResults(query, results) {
   }
 
   if (results) {
-    console.log(results);
     articles.style.display = 'flex';
     for (let key in results) {
       if (results.hasOwnProperty(key)) {
@@ -128,7 +126,6 @@ function displaySearchResults(query, results) {
   } else {
     noResultsMessage.style.display = 'block';
   }
-
 }
 
 function createArticle(articleData) {
