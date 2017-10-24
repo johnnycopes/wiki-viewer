@@ -7,6 +7,29 @@
 // GLOBAL
 // =================
 
+// Mixins
+
+@mixin small-caps {
+	text-transform: uppercase;
+	font-size: 2.5rem;
+	font-weight: 300;
+	letter-spacing: 4px;
+}
+
+@mixin self-drawing-line($line-width, $color) {
+	content: "";
+	position: absolute;
+	border-bottom: $line-width solid $color;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	transition: 300ms all ease-in-out;
+	transform: scaleX(0);
+}
+
+
+// Tags/classes
+
 * {
 	box-sizing: border-box;
 }
@@ -23,14 +46,27 @@ a {
 	text-decoration: none;
 }
 
-.btn {
+.icon {
 	transition: 300ms opacity ease-in-out;
 	opacity: 0.75;
+	cursor: pointer;
 }
 
-.btn:hover {
+.icon:hover {
 	opacity: 1;
 }
+
+.square-btn {
+	padding: 0;
+	font-family: $body-font;
+	width: 45%;
+	padding: 3rem 0;
+	border: 5px solid $black;
+	background: $white;
+	cursor: pointer;
+	@include small-caps;
+}
+
 
 // =================
 // SPECIFIC
@@ -39,7 +75,7 @@ a {
 // Home page
 
 .wiki-btn {
-	font-size: $huge-font-size;
+	font-size: $collosal-font-size;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -76,28 +112,73 @@ a {
 	text-align: right;
 }
 
-.search-bar {
+.close-btn {
+	font-size: $btn-font-size;
+}
+
+.search-interface {
 	width: 60%;
+	max-width: 960px;
 	color: $black;
-	font-size: $big-font-size;
-	background: transparent;
-	border: none;
-	border-bottom: 5px solid $black;
-	padding-bottom: 1rem;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	opacity: 0;
 	transition: 300ms 300ms opacity ease-in;
+}
+
+.search-bar {
+	width: 100%;
+	font-size: $big-font-size;
+	background: transparent;
+	border: none;
+	border-bottom: 5px solid $black;
+	padding-bottom: 1rem;
+	margin-bottom: 4rem;
 
 	&:focus {
 		outline: none;
 	}
 }
 
-.close-btn {
-	font-size: $btn-font-size;
+.search-buttons {
+	display: flex;
+	justify-content: space-around;
+}
+
+.btn-content {
+	position: relative;
+	transition: 300ms all ease-in-out;
+	display: inline-block;
+}
+
+.random-btn {
+	text-align: center;
+	color: $black;
+
+	.btn-content::after {
+		@include self-drawing-line(1px, $black);
+	}
+}
+
+.search-btn {
+	background: $black;
+	color: $white;
+
+	.btn-content::after {
+		@include self-drawing-line(1px, $white);
+	}
+}
+
+.square-btn:hover {
+	.btn-content {
+		transform: scale(1.1);
+	}
+
+	.btn-content::after {
+		transform: scale(1);
+	}
 }
 
 
@@ -114,10 +195,7 @@ a {
 	margin-bottom: 5rem;
 
 	.search-results-text {
-		text-transform: uppercase;
-		font-weight: 300;
-		letter-spacing: 4px;
-		font-size: 2.5rem;
+		@include small-caps;
 	}
 
 	.search-term {
@@ -125,7 +203,7 @@ a {
 	}
 
 	.home-btn,
-	.search-btn {
+	.mag-btn {
 		font-size: $btn-font-size;
 		align-self: flex-start;
 	}
@@ -189,27 +267,20 @@ a {
 	}
 
 	&-link-header::after {
-		content: "";
-		position: absolute;
-    border-bottom: 2px solid $white;
-    width: 100%;
-		left: 0;
-		bottom: 0;
-		transition: 300ms all ease-in-out;
-		transform: scaleX(0);
+		@include self-drawing-line(2px, $white);
 	}
 
 	// Hover effects
 
-	.article:hover &-link-header {
+	&:hover &-link-header {
 		transform: scale(1.1);
 	}
 
-	.article:hover &-link-header::after {
+	&:hover &-link-header::after {
     transform: scaleX(1);
 	}
 
-	.article:hover &-link::before {
+	&:hover &-link::before {
 		opacity: 0;
 	}
 }
@@ -258,4 +329,11 @@ a {
 
 .no-scroll {
 	overflow: hidden;
+}
+
+.clean-caps {
+	text-transform: uppercase;
+	font-size: 2.5rem;
+	font-weight: 300;
+	letter-spacing: 4px;
 }

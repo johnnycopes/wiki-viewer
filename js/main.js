@@ -9,13 +9,15 @@ const transitionModal = document.querySelector('.transition-modal');
 
 // Search modal page
 const searchModal = document.querySelector('.search-modal');
-const searchBar = document.querySelector('.search-bar');
 const closeBtn = document.querySelector('.close-btn');
+const searchInterface = document.querySelector('.search-interface');
+const searchBar = document.querySelector('.search-bar');
+const searchBtn = document.querySelector('.search-btn');
 
 // Results page
 const header = document.querySelector('header');
 const homeBtn = document.querySelector('.home-btn');
-const searchBtn = document.querySelector('.search-btn');
+const magBtn = document.querySelector('.mag-btn');
 const searchTerm = document.querySelector('.search-term');
 const articles = document.querySelector('.articles');
 const noResultsMessage = document.querySelector('.no-results-message');
@@ -28,7 +30,6 @@ const searchModalOpener = document.querySelectorAll('.search-modal-opener');
 // EVENT LISTENERS
 // =================
 
-closeBtn.addEventListener('click', closeSearchModal);
 
 searchModalOpener.forEach(function(element) {
   element.addEventListener('click', openSearchModal);
@@ -46,6 +47,8 @@ searchBar.addEventListener('keydown', function(event) {
   }
 });
 
+closeBtn.addEventListener('click', closeSearchModal);
+searchBtn.addEventListener('click', search);
 homeBtn.addEventListener('click', resetPage);
 
 
@@ -70,14 +73,14 @@ function resetPage() {
 function openSearchModal() {
   searchModal.classList.add('slide-on-top');
   body.classList.add('no-scroll');
-  searchBar.classList.add('fade-in');
+  searchInterface.classList.add('fade-in');
   searchBar.focus();
 }
 
 function closeSearchModal() {
   searchModal.classList.remove('slide-on-top');
   body.classList.remove('no-scroll');
-  searchBar.classList.remove('fade-in');
+  searchInterface.classList.remove('fade-in');
 }
 
 function search() {

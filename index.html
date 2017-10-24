@@ -8,24 +8,34 @@
   </head>
   <body>
     <!-- Home page -->
-    <i class="btn wiki-btn search-modal-opener clickable fa fa-wikipedia-w"></i>
+    <i class="icon wiki-btn search-modal-opener clickable fa fa-wikipedia-w"></i>
     <div class="transition-modal"></div>
 
     <!-- Search modal page -->
     <div class="search-modal">
-      <i class="btn close-btn clickable fa fa-close"></i>
-      <input class="search-bar" type="text" autofocus />
+      <i class="icon close-btn clickable fa fa-close"></i>
+      <div class="search-interface">
+        <input class="search-bar" type="text" autofocus />
+        <div class="search-buttons">
+          <a class="square-btn random-btn" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+            <h4 class="btn-content">Random</h4>
+          </a>
+          <button class="square-btn search-btn" type="button">
+            <h4 class="btn-content">Search</h4>
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- Results page -->
     <div class="container">
       <header class="header">
-        <i class="btn home-btn clickable fa fa-wikipedia-w"></i>
+        <i class="icon home-btn clickable fa fa-wikipedia-w"></i>
         <div>
           <h4 class="search-results-text">Search results for</h4>
           <h1 class="search-term"></h1>
         </div>
-        <i class="btn search-btn search-modal-opener clickable fa fa-search"></i>
+        <i class="icon mag-btn search-modal-opener clickable fa fa-search"></i>
       </header>
       <div class="articles"></div>
       <h3 class="no-results-message">No results found</h3>
