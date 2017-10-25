@@ -15,6 +15,7 @@ const searchBar = document.querySelector('.search-bar');
 const searchBtn = document.querySelector('.search-btn');
 
 // Results page
+const container = document.querySelector('.container');
 const header = document.querySelector('header');
 const homeBtn = document.querySelector('.home-btn');
 const magBtn = document.querySelector('.mag-btn');
@@ -61,8 +62,7 @@ function resetPage() {
   body.classList.add('no-scroll');
   setTimeout(function() {
     wikiBtn.style.display = 'inline-block';
-    header.style.display = 'none';
-    articles.style.display = 'none';
+    container.style.display = 'none';
     noResultsMessage.style.display = 'none';
     searchBar.value = '';
     transitionModal.classList.remove('slide-on-top');
@@ -107,7 +107,7 @@ function search() {
 
 function displaySearchResults(query, results) {
   wikiBtn.style.display = 'none';
-  header.style.display = 'flex';
+  container.style.display = 'block';
   searchTerm.textContent = query;
   noResultsMessage.style.display = 'none';
 

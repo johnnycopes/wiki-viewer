@@ -159,13 +159,14 @@ a {
 // Results page
 
 .container {
+	display: none;
 	max-width: 1400px;
 	padding: 2rem;
 	text-align: center;
 }
 
 .header {
-	display: none;
+	@include flex;
 	margin-bottom: 5rem;
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
@@ -211,7 +212,8 @@ a {
 	overflow: hidden;
 
 	&::after {
-		@include full-size-black-pseudo-element;
+		@include full-size-pseudo-element;
+		background: $black;
 		opacity: 0.5;
 		z-index: 1;
 	}
@@ -228,12 +230,13 @@ a {
 		        align-items: center;
 	}
 
-	// &-link::before {
-	// 	@include full-size-black-pseudo-element;
-	// 	opacity: 1;
-	// 	z-index: 2;
-	// 	@include transition($transition-in);
-	// }
+	&-link::before {
+		@include full-size-pseudo-element;
+		// background: tran
+		opacity: 1;
+		z-index: 2;
+		@include transition($transition-in);
+	}
 
 	&-link-header {
 		display: inline-block;
@@ -336,13 +339,8 @@ a {
 	}
 
 	.wiki-btn {
-		font-size: 30rem;
+		font-size: 25rem;
 	}
-
-	// .search-bar,
-	// .search-term {
-	// 	font-size: 10rem;
-	// }
 
 	.close-btn {
 		top: 5rem;
@@ -358,24 +356,32 @@ a {
 	}
 
 	.no-img::before {
-		font-size: 20rem;
+		font-size: 15rem;
 	}
 
 }
 
 @media screen and (min-width: 1100px) {
 
+	.wiki-btn {
+		font-size: 30rem;
+	}
+
+
 	.search-interface {
 		width: 60%;
 	}
 
 	.article {
+
 		&-link::before {
-			@include full-size-black-pseudo-element;
-			opacity: 1;
-			z-index: 2;
-			@include transition($transition-in);
+			background: $black;
 		}
+
+	}
+
+	.no-img::before {
+		font-size: 20rem;
 	}
 
 }
