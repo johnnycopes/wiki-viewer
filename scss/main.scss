@@ -7,13 +7,23 @@
 // GLOBAL
 // =================
 
+::-moz-selection {
+	background: lightgray;
+	color: $white;
+}
+
+// =================
+// GLOBAL
+// =================
+
 ::selection {
 	background: lightgray;
 	color: $white;
 }
 
 * {
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
 body {
@@ -29,7 +39,9 @@ a {
 }
 
 .icon {
-	transition: 300ms opacity ease-in-out;
+	-webkit-transition: $transition-in-out;
+	-o-transition: $transition-in-out;
+	transition: $transition-in-out;
 	opacity: 0.75;
 	cursor: pointer;
 }
@@ -58,16 +70,15 @@ a {
 .wiki-btn {
 	font-size: $collosal-font-size;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	@include relative-center;
 }
 
 .transition-modal {
 	position: fixed;
 	@include modal;
-	transition: 300ms all ease-in;
-	transform: translateY(100%);
+	-webkit-transform: translateY(100%);
+	    -ms-transform: translateY(100%);
+	        transform: translateY(100%);
 }
 
 
@@ -76,11 +87,12 @@ a {
 .search-modal {
 	position: absolute;
 	@include modal;
-	color: $black;
-	transition: 300ms all ease-in;
-	transform: translateY(-100%);
 	padding: 5rem;
 	text-align: right;
+	color: $black;
+	-webkit-transform: translateY(-100%);
+	    -ms-transform: translateY(-100%);
+	        transform: translateY(-100%);
 }
 
 .close-btn {
@@ -92,10 +104,10 @@ a {
 	max-width: 960px;
 	color: $black;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	@include relative-center;
 	opacity: 0;
+	-webkit-transition: 300ms 300ms opacity ease-in;
+	-o-transition: 300ms 300ms opacity ease-in;
 	transition: 300ms 300ms opacity ease-in;
 }
 
@@ -114,13 +126,18 @@ a {
 }
 
 .search-buttons {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-around;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
 }
 
 .btn-content {
 	position: relative;
-	transition: 300ms all ease-in-out;
+	-webkit-transition: $transition-in-out;
+	-o-transition: $transition-in-out;
+	transition: $transition-in-out;
 	display: inline-block;
 }
 
@@ -144,11 +161,15 @@ a {
 
 .square-btn:hover {
 	.btn-content {
-		transform: scale(1.1);
+		-webkit-transform: scale(1.1);
+		    -ms-transform: scale(1.1);
+		        transform: scale(1.1);
 	}
 
 	.btn-content::after {
-		transform: scale(1);
+		-webkit-transform: scale(1);
+		    -ms-transform: scale(1);
+		        transform: scale(1);
 	}
 }
 
@@ -163,7 +184,9 @@ a {
 
 .header {
 	display: none;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	margin-bottom: 5rem;
 
 	.search-results-text {
@@ -177,21 +200,31 @@ a {
 	.home-btn,
 	.mag-btn {
 		font-size: $icon-font-size;
-		align-self: flex-start;
+		-ms-flex-item-align: start;
+		    align-self: flex-start;
 	}
 }
 
 .articles {
 	display: none;
-	flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
 }
 
 .article {
 	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex: 1 1 30rem;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 1 30rem;
+	        flex: 1 1 30rem;
 	height: 30rem;
 	background-position: top;
 	background-size: cover;
@@ -199,41 +232,41 @@ a {
 	overflow: hidden;
 
 	&::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: $black;
+		@include full-size-black-pseudo-element;
 		opacity: 0.5;
 		z-index: 1;
 	}
 
 	&-link {
 		padding: 0 2rem;
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-    flex-direction: column;
-		align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 	}
 
 	&-link::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: $black;
+		@include full-size-black-pseudo-element;
 		opacity: 1;
 		z-index: 2;
-		transition: 300ms all ease-in;
+		-webkit-transition: $transition-in;
+		-o-transition: $transition-in;
+		transition: $transition-in;
 	}
 
 	&-link-header {
 		display: inline-block;
-		transition: 300ms all ease-in-out;
-		box-decoration-break: clone;
+		-webkit-transition: $self-drawing-line;
+		-o-transition: $self-drawing-line;
+		transition: $self-drawing-line;
+		-webkit-box-decoration-break: clone;
+		        box-decoration-break: clone;
 		font-weight: 400;
 		z-index: 2;
 	}
@@ -245,11 +278,15 @@ a {
 	// Hover effects
 
 	&:hover &-link-header {
-		transform: scale(1.1);
+		-webkit-transform: scale(1.1);
+		    -ms-transform: scale(1.1);
+		        transform: scale(1.1);
 	}
 
 	&:hover &-link-header::after {
-    transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+            transform: scaleX(1);
 	}
 
 	&:hover &-link::before {
@@ -264,9 +301,7 @@ a {
 	font-size: $huge-font-size;
 	color: $white;
 	opacity: 0.4;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	@include relative-center;
 }
 
 .no-results-message {
@@ -279,7 +314,9 @@ a {
 // =================
 
 .slide-on-top {
-	transform: translateY(0);
+	-webkit-transform: translateY(0);
+	    -ms-transform: translateY(0);
+	        transform: translateY(0);
 }
 
 .fade-in {

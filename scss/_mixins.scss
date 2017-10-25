@@ -1,10 +1,31 @@
+@mixin relative-center {
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+}
+
+@mixin full-size-black-pseudo-element {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $black;
+}
+
 @mixin modal {
+	z-index: 3;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100vh;
 	background: $white;
-	z-index: 3;
+	-webkit-transition: $transition-in;
+	-o-transition: $transition-in;
+	transition: $transition-in;
 }
 
 @mixin small-caps {
@@ -20,6 +41,10 @@
 	width: 100%;
 	left: 0;
 	bottom: 0;
-	transition: 300ms all ease-in-out;
-	transform: scaleX(0);
+	-webkit-transition: $transition-in-out;
+	-o-transition: $transition-in-out;
+	transition: $transition-in-out;
+	-webkit-transform: scaleX(0);
+	    -ms-transform: scaleX(0);
+	        transform: scaleX(0);
 }

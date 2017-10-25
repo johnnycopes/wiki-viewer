@@ -416,7 +416,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
   position: relative;
   min-height: 100vh;
-  background: #080808;
+  background: #111111;
   color: #fff; }
 
 a {
@@ -439,7 +439,7 @@ a {
   letter-spacing: 4px;
   font-family: "Lato", "Helvetica", "TrebuchetMS", "Arial", sans-serif;
   background: #fff;
-  border: 2px solid #080808;
+  border: 2px solid #111111;
   cursor: pointer; }
 
 .wiki-btn {
@@ -468,7 +468,7 @@ a {
   height: 100vh;
   background: #fff;
   z-index: 3;
-  color: #080808;
+  color: #111111;
   transition: 300ms all ease-in;
   transform: translateY(-100%);
   padding: 5rem;
@@ -480,7 +480,7 @@ a {
 .search-interface {
   width: 60%;
   max-width: 960px;
-  color: #080808;
+  color: #111111;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -493,7 +493,7 @@ a {
   font-size: 10rem;
   font-weight: 400;
   border: none;
-  border-bottom: 2px solid #080808;
+  border-bottom: 2px solid #111111;
   padding-bottom: 1rem;
   margin-bottom: 4rem; }
   .search-bar:focus {
@@ -510,11 +510,11 @@ a {
 
 .random-btn {
   text-align: center;
-  color: #080808; }
+  color: #111111; }
   .random-btn .btn-content::after {
     content: "";
     position: absolute;
-    border-bottom: 1px solid #080808;
+    border-bottom: 1px solid #111111;
     width: 100%;
     left: 0;
     bottom: 0;
@@ -522,7 +522,7 @@ a {
     transform: scaleX(0); }
 
 .search-btn {
-  background: #080808;
+  background: #111111;
   color: #fff; }
   .search-btn .btn-content::after {
     content: "";
@@ -581,7 +581,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #080808;
+    background: #111111;
     opacity: 0.5;
     z-index: 1; }
   .article-link {
@@ -596,7 +596,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #080808;
+    background: #111111;
     opacity: 1;
     z-index: 2;
     transition: 300ms all ease-in; }

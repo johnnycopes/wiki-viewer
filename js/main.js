@@ -85,7 +85,7 @@ function closeSearchModal() {
 
 function search() {
   let query = searchBar.value;
-  let url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&piprop=original&origin=*&gsrlimit=30&generator=search&gsrsearch=' + query;
+  let url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&piprop=original&origin=*&gsrlimit=50&generator=search&gsrsearch=' + query;
 
   fetch(url)
     .then(function(response) {
@@ -109,6 +109,7 @@ function displaySearchResults(query, results) {
   wikiBtn.style.display = 'none';
   header.style.display = 'flex';
   searchTerm.textContent = query;
+  noResultsMessage.style.display = 'none';
 
 // remove all existing articles from page
   while (articles.lastChild) {
