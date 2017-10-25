@@ -69,7 +69,6 @@ a {
 }
 
 .transition-modal {
-	position: fixed;
 	@include modal;
 	@include translateY(100%);
 }
@@ -78,13 +77,11 @@ a {
 // Search modal page
 
 .search-modal {
-	position: absolute;
 	@include modal;
 	@include translateY(-100%);
 	@include flex;
 	@include justify-content-center;
 	@include align-items-center;
-	color: $black;
 }
 
 .close-btn {
