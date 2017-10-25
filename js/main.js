@@ -30,8 +30,8 @@ const searchModalOpener = document.querySelectorAll('.search-modal-opener');
 // EVENT LISTENERS
 // =================
 
-
-searchModalOpener.forEach(function(element) {
+let searchNodesArray = [].slice.call(searchModalOpener); // Edge fix: converts selected elements array-like object into a real array in order to use native Array.prototype.forEach
+searchNodesArray.forEach(function(element) {
   element.addEventListener('click', openSearchModal);
 });
 

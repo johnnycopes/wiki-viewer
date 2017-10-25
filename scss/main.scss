@@ -3,20 +3,17 @@
 @import 'variables';
 @import 'mixins';
 
-// =================
-// GLOBAL
-// =================
-
-::-moz-selection {
-	background: lightgray;
-	color: $white;
-}
 
 // =================
 // GLOBAL
 // =================
 
 ::selection {
+	background: lightgray;
+	color: $white;
+}
+
+::-moz-selection {
 	background: lightgray;
 	color: $white;
 }
@@ -34,14 +31,12 @@ body {
 }
 
 a {
-	color: $white;
 	text-decoration: none;
+	color: $white;
 }
 
 .icon {
-	-webkit-transition: $transition-in-out;
-	-o-transition: $transition-in-out;
-	transition: $transition-in-out;
+	@include transition($transition-in-out);
 	opacity: 0.75;
 	cursor: pointer;
 }
@@ -68,17 +63,15 @@ a {
 // Home page
 
 .wiki-btn {
-	font-size: $collosal-font-size;
 	position: absolute;
+	font-size: $collosal-font-size;
 	@include relative-center;
 }
 
 .transition-modal {
 	position: fixed;
 	@include modal;
-	-webkit-transform: translateY(100%);
-	    -ms-transform: translateY(100%);
-	        transform: translateY(100%);
+	@include translateY(100%);
 }
 
 
@@ -87,15 +80,17 @@ a {
 .search-modal {
 	position: absolute;
 	@include modal;
-	padding: 5rem;
-	text-align: right;
+	@include translateY(-100%);
+	@include flex;
+	@include justify-content-center;
+	@include align-items-center;
 	color: $black;
-	-webkit-transform: translateY(-100%);
-	    -ms-transform: translateY(-100%);
-	        transform: translateY(-100%);
 }
 
 .close-btn {
+	position: absolute;
+	top: 5rem;
+	right: 5rem;
 	font-size: $icon-font-size;
 }
 
@@ -103,12 +98,8 @@ a {
 	width: 60%;
 	max-width: 960px;
 	color: $black;
-	position: absolute;
-	@include relative-center;
 	opacity: 0;
-	-webkit-transition: 300ms 300ms opacity ease-in;
-	-o-transition: 300ms 300ms opacity ease-in;
-	transition: 300ms 300ms opacity ease-in;
+	@include transition(300ms 300ms opacity ease-in)
 }
 
 .search-bar {
@@ -126,18 +117,14 @@ a {
 }
 
 .search-buttons {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
+	@include flex;
 	-ms-flex-pack: distribute;
-	    justify-content: space-around;
+	justify-content: space-around;
 }
 
 .btn-content {
 	position: relative;
-	-webkit-transition: $transition-in-out;
-	-o-transition: $transition-in-out;
-	transition: $transition-in-out;
+	@include transition($transition-in-out);
 	display: inline-block;
 }
 
@@ -161,15 +148,11 @@ a {
 
 .square-btn:hover {
 	.btn-content {
-		-webkit-transform: scale(1.1);
-		    -ms-transform: scale(1.1);
-		        transform: scale(1.1);
+		@include scale(1.1)
 	}
 
 	.btn-content::after {
-		-webkit-transform: scale(1);
-		    -ms-transform: scale(1);
-		        transform: scale(1);
+		@include scale(1)
 	}
 }
 
@@ -184,10 +167,10 @@ a {
 
 .header {
 	display: none;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
 	margin-bottom: 5rem;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
 
 	.search-results-text {
 		@include small-caps;
@@ -213,15 +196,9 @@ a {
 
 .article {
 	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	@include flex;
+	@include justify-content-center;
+	@include align-items-center;
 	-webkit-box-flex: 1;
 	    -ms-flex: 1 1 30rem;
 	        flex: 1 1 30rem;
@@ -239,9 +216,7 @@ a {
 
 	&-link {
 		padding: 0 2rem;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
+		@include flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -255,16 +230,12 @@ a {
 		@include full-size-black-pseudo-element;
 		opacity: 1;
 		z-index: 2;
-		-webkit-transition: $transition-in;
-		-o-transition: $transition-in;
-		transition: $transition-in;
+		@include transition($transition-in);
 	}
 
 	&-link-header {
 		display: inline-block;
-		-webkit-transition: $self-drawing-line;
-		-o-transition: $self-drawing-line;
-		transition: $self-drawing-line;
+		@include transition($transition-in-out);
 		-webkit-box-decoration-break: clone;
 		        box-decoration-break: clone;
 		font-weight: 400;
@@ -278,15 +249,11 @@ a {
 	// Hover effects
 
 	&:hover &-link-header {
-		-webkit-transform: scale(1.1);
-		    -ms-transform: scale(1.1);
-		        transform: scale(1.1);
+		@include scale(1.1)
 	}
 
 	&:hover &-link-header::after {
-    -webkit-transform: scaleX(1);
-        -ms-transform: scaleX(1);
-            transform: scaleX(1);
+    @include scale(1)
 	}
 
 	&:hover &-link::before {
@@ -314,9 +281,7 @@ a {
 // =================
 
 .slide-on-top {
-	-webkit-transform: translateY(0);
-	    -ms-transform: translateY(0);
-	        transform: translateY(0);
+	@include translateY(0);
 }
 
 .fade-in {
@@ -333,5 +298,5 @@ a {
 // =================
 
 .no-scroll {
-	overflow: hidden !important;
+	overflow: hidden;
 }

@@ -1,9 +1,63 @@
+// =================
+// MIXINS
+// =================
+
+// Flexbox
+
+@mixin flex {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+@mixin justify-content-center {
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+@mixin align-items-center {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+
+// Animations
+
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+			 -o-transition: $transition;
+					transition: $transition;
+}
+
+@mixin scale($size) {
+	-webkit-transform: scale($size);
+		  -ms-transform: scale($size);
+		      transform: scale($size);
+}
+
+@mixin translateY($position) {
+	-webkit-transform: translateY($position);
+	    -ms-transform: translateY($position);
+	        transform: translateY($position);
+}
+
+
+// Specific
+
 @mixin relative-center {
 	top: 50%;
 	left: 50%;
 	-webkit-transform: translate(-50%, -50%);
 	    -ms-transform: translate(-50%, -50%);
 	        transform: translate(-50%, -50%);
+}
+
+@mixin small-caps {
+	text-transform: uppercase;
+	font-size: 2.5rem;
+	letter-spacing: 4px;
 }
 
 @mixin full-size-black-pseudo-element {
@@ -23,27 +77,17 @@
 	width: 100%;
 	height: 100vh;
 	background: $white;
-	-webkit-transition: $transition-in;
-	-o-transition: $transition-in;
-	transition: $transition-in;
-}
-
-@mixin small-caps {
-	text-transform: uppercase;
-	font-size: 2.5rem;
-	letter-spacing: 4px;
+	@include transition($transition-in);
 }
 
 @mixin self-drawing-line($color) {
 	content: "";
-	position: absolute;
 	border-bottom: 1px solid $color;
+	position: absolute;
 	width: 100%;
 	left: 0;
 	bottom: 0;
-	-webkit-transition: $transition-in-out;
-	-o-transition: $transition-in-out;
-	transition: $transition-in-out;
+	@include transition($transition-in-out);
 	-webkit-transform: scaleX(0);
 	    -ms-transform: scaleX(0);
 	        transform: scaleX(0);
