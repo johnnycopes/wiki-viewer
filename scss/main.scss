@@ -64,7 +64,7 @@ a {
 
 .wiki-btn {
 	position: absolute;
-	font-size: $collosal-font-size;
+	font-size: 20rem;
 	@include relative-center;
 }
 
@@ -88,13 +88,13 @@ a {
 
 .close-btn {
 	position: absolute;
-	top: 5rem;
-	right: 5rem;
+	top: 2rem;
+	right: 2rem;
 	font-size: $icon-font-size;
 }
 
 .search-interface {
-	width: 60%;
+	width: 90%;
 	max-width: 960px;
 	color: $black;
 	opacity: 0;
@@ -103,7 +103,7 @@ a {
 
 .search-bar {
 	width: 100%;
-	font-size: $big-font-size;
+	font-size: 5rem;
 	font-weight: 400;
 	border: none;
 	border-bottom: 2px solid $black;
@@ -160,7 +160,7 @@ a {
 
 .container {
 	max-width: 1400px;
-	padding: 5rem;
+	padding: 2rem;
 	text-align: center;
 }
 
@@ -170,21 +170,23 @@ a {
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
+}
 
-	.search-results-text {
-		@include small-caps;
-	}
+.search-results-text {
+	@include small-caps;
+	margin-bottom: 2rem;
+}
 
-	.search-term {
-		font-size: $big-font-size;
-	}
+.search-term {
+	font-size: 5rem;
+	word-break: break-word;
+}
 
-	.home-btn,
-	.mag-btn {
-		font-size: $icon-font-size;
-		-ms-flex-item-align: start;
-		    align-self: flex-start;
-	}
+.home-btn,
+.mag-btn {
+	font-size: $icon-font-size;
+	-ms-flex-item-align: start;
+			align-self: flex-start;
 }
 
 .articles {
@@ -195,6 +197,7 @@ a {
 
 .article {
 	position: relative;
+	margin-bottom: 2rem;
 	@include flex;
 	@include justify-content-center;
 	@include align-items-center;
@@ -225,12 +228,12 @@ a {
 		        align-items: center;
 	}
 
-	&-link::before {
-		@include full-size-black-pseudo-element;
-		opacity: 1;
-		z-index: 2;
-		@include transition($transition-in);
-	}
+	// &-link::before {
+	// 	@include full-size-black-pseudo-element;
+	// 	opacity: 1;
+	// 	z-index: 2;
+	// 	@include transition($transition-in);
+	// }
 
 	&-link-header {
 		display: inline-block;
@@ -264,7 +267,7 @@ a {
 	content: "\f266"; 
 	font-family: FontAwesome;
 	position: absolute;
-	font-size: $huge-font-size;
+	font-size: 15rem;
 	color: $white;
 	opacity: 0.4;
 	@include relative-center;
@@ -298,4 +301,77 @@ a {
 
 .no-scroll {
 	overflow: hidden;
+}
+
+
+
+// =================
+// RESPONSIVE
+// =================
+
+@media screen and (min-width: 480px) {
+
+	.btn-content,
+	.search-results-text {
+		font-size: 2.5rem;
+		letter-spacing: 4px;
+		margin-bottom: 0;
+	}
+
+	.article {
+		margin-bottom: 0;
+	}
+
+}
+
+
+@media (min-width: 768px) {
+
+	html {
+		font-size: 10px;
+	}
+
+	.wiki-btn {
+		font-size: 30rem;
+	}
+
+	.search-bar,
+	.search-term {
+		font-size: 10rem;
+	}
+
+	.close-btn {
+		top: 5rem;
+		right: 5rem;
+	}
+
+	.search-interface {
+		width: 75%;
+	}
+
+	.container {
+		padding: 5rem;
+	}
+
+	.no-img::before {
+		font-size: 20rem;
+	}
+
+}
+
+@media screen and (min-width: 1100px) {
+
+	.search-interface {
+		width: 60%;
+	}
+
+	.article {
+		&-link::before {
+			@include full-size-black-pseudo-element;
+			opacity: 1;
+			z-index: 2;
+			@include transition($transition-in);
+		}
+	}
+
 }

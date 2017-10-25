@@ -391,7 +391,7 @@ template {
   display: none; }
 
 html {
-  font-size: 10px; }
+  font-size: 7.5px; }
 
 body {
   font-family: "Lato", "Helvetica", "TrebuchetMS", "Arial", sans-serif;
@@ -405,6 +405,9 @@ input {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 300; }
+
+h1 {
+  line-height: 1; }
 
 ::selection {
   background: lightgray;
@@ -442,8 +445,8 @@ a {
   width: 45%;
   padding: 3rem 0;
   text-transform: uppercase;
-  font-size: 2.5rem;
-  letter-spacing: 4px;
+  font-size: 2rem;
+  letter-spacing: 2px;
   font-family: "Lato", "Helvetica", "TrebuchetMS", "Arial", sans-serif;
   background: #fff;
   border: 2px solid #111111;
@@ -451,7 +454,7 @@ a {
 
 .wiki-btn {
   position: absolute;
-  font-size: 30rem;
+  font-size: 20rem;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -501,12 +504,12 @@ a {
 
 .close-btn {
   position: absolute;
-  top: 5rem;
-  right: 5rem;
+  top: 2rem;
+  right: 2rem;
   font-size: 4rem; }
 
 .search-interface {
-  width: 60%;
+  width: 90%;
   max-width: 960px;
   color: #111111;
   opacity: 0;
@@ -516,7 +519,7 @@ a {
 
 .search-bar {
   width: 100%;
-  font-size: 10rem;
+  font-size: 5rem;
   font-weight: 400;
   border: none;
   border-bottom: 2px solid #111111;
@@ -584,7 +587,7 @@ a {
 
 .container {
   max-width: 1400px;
-  padding: 5rem;
+  padding: 2rem;
   text-align: center; }
 
 .header {
@@ -593,17 +596,22 @@ a {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between; }
-  .header .search-results-text {
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    letter-spacing: 4px; }
-  .header .search-term {
-    font-size: 10rem; }
-  .header .home-btn,
-  .header .mag-btn {
-    font-size: 4rem;
-    -ms-flex-item-align: start;
-    align-self: flex-start; }
+
+.search-results-text {
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 2rem; }
+
+.search-term {
+  font-size: 5rem;
+  word-break: break-word; }
+
+.home-btn,
+.mag-btn {
+  font-size: 4rem;
+  -ms-flex-item-align: start;
+  align-self: flex-start; }
 
 .articles {
   display: none;
@@ -612,6 +620,7 @@ a {
 
 .article {
   position: relative;
+  margin-bottom: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -651,19 +660,6 @@ a {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center; }
-  .article-link::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #111111;
-    opacity: 1;
-    z-index: 2;
-    -webkit-transition: 300ms all ease-in;
-    -o-transition: 300ms all ease-in;
-    transition: 300ms all ease-in; }
   .article-link-header {
     display: inline-block;
     -webkit-transition: 300ms all ease-in-out;
@@ -701,7 +697,7 @@ a {
   content: "\f266";
   font-family: FontAwesome;
   position: absolute;
-  font-size: 20rem;
+  font-size: 15rem;
   color: #fff;
   opacity: 0.4;
   top: 50%;
@@ -726,5 +722,55 @@ a {
 
 .no-scroll {
   overflow: hidden; }
+
+@media screen and (min-width: 480px) {
+  .btn-content,
+  .search-results-text {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 0; }
+
+  .article {
+    margin-bottom: 0; } }
+@media (min-width: 768px) {
+  html {
+    font-size: 10px; }
+
+  .wiki-btn {
+    font-size: 30rem; }
+
+  .search-bar,
+  .search-term {
+    font-size: 10rem; }
+
+  .close-btn {
+    top: 5rem;
+    right: 5rem; }
+
+  .search-interface {
+    width: 75%; }
+
+  .container {
+    padding: 5rem; }
+
+  .no-img::before {
+    font-size: 20rem; } }
+@media screen and (min-width: 1100px) {
+  .search-interface {
+    width: 60%; }
+
+  .article-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111111;
+    opacity: 1;
+    z-index: 2;
+    -webkit-transition: 300ms all ease-in;
+    -o-transition: 300ms all ease-in;
+    transition: 300ms all ease-in; } }
 
 /*# sourceMappingURL=main.css.map */
