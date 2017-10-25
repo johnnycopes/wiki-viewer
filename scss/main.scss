@@ -103,7 +103,7 @@ a {
 
 .search-bar {
 	width: 100%;
-	font-size: 5rem;
+	font-size: 7.5rem;
 	font-weight: 400;
 	border: none;
 	border-bottom: 2px solid $black;
@@ -178,7 +178,7 @@ a {
 }
 
 .search-term {
-	font-size: 5rem;
+	font-size: 7.5rem;
 	word-break: break-word;
 }
 
@@ -311,11 +311,15 @@ a {
 
 @media screen and (min-width: 480px) {
 
+	.search-bar,
+	.search-term {
+		font-size: 10rem;
+	}
+
 	.btn-content,
 	.search-results-text {
 		font-size: 2.5rem;
 		letter-spacing: 4px;
-		margin-bottom: 0;
 	}
 
 	.article {
@@ -335,10 +339,10 @@ a {
 		font-size: 30rem;
 	}
 
-	.search-bar,
-	.search-term {
-		font-size: 10rem;
-	}
+	// .search-bar,
+	// .search-term {
+	// 	font-size: 10rem;
+	// }
 
 	.close-btn {
 		top: 5rem;

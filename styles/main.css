@@ -519,7 +519,7 @@ a {
 
 .search-bar {
   width: 100%;
-  font-size: 5rem;
+  font-size: 7.5rem;
   font-weight: 400;
   border: none;
   border-bottom: 2px solid #111111;
@@ -604,7 +604,7 @@ a {
   margin-bottom: 2rem; }
 
 .search-term {
-  font-size: 5rem;
+  font-size: 7.5rem;
   word-break: break-word; }
 
 .home-btn,
@@ -724,11 +724,14 @@ a {
   overflow: hidden; }
 
 @media screen and (min-width: 480px) {
+  .search-bar,
+  .search-term {
+    font-size: 10rem; }
+
   .btn-content,
   .search-results-text {
     font-size: 2.5rem;
-    letter-spacing: 4px;
-    margin-bottom: 0; }
+    letter-spacing: 4px; }
 
   .article {
     margin-bottom: 0; } }
@@ -738,10 +741,6 @@ a {
 
   .wiki-btn {
     font-size: 30rem; }
-
-  .search-bar,
-  .search-term {
-    font-size: 10rem; }
 
   .close-btn {
     top: 5rem;
