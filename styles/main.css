@@ -738,7 +738,7 @@ a {
 .no-scroll {
   overflow: hidden; }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 500px) {
   .search-bar,
   .search-term {
     font-size: 10rem; }
